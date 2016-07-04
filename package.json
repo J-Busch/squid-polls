@@ -5,8 +5,11 @@
   "main": "server.js",
   "dependencies": {
     "dotenv": "^1.2.0",
-    "mongodb": "^2.1.18",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "express-session": "^1.14.0",
+    "mongoose": "^4.5.3",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4"
   },
   "devDependencies": {},
   "scripts": {

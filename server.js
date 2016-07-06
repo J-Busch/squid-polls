@@ -6,13 +6,12 @@ var express = require('express'),
     passport = require('passport'),
     session = require('express-session');
 
-var url = "mongodb://localhost:27017";
 var app = express();
 require('dotenv').load();
 require('./app/config/passport')(passport);
-var port = process.env.PORT;
 
-mongoose.connect(process.env.MONGO_URI);
+var url = process.env.MONGO_URI;
+mongoose.connect(url);
     
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/public', express.static(process.cwd() + '/public'));
@@ -28,7 +27,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 routes(app, passport);
-    
+
+var port = process.env.PORT;    
 app.listen(port, function () {
     console.log('Listening on port' + port);
 });

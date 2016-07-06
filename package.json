@@ -9,7 +9,8 @@
     "express-session": "^1.14.0",
     "mongoose": "^4.5.3",
     "passport": "^0.3.2",
-    "passport-github": "^1.1.0"
+    "passport-github": "^1.1.0",
+    "passport-twitter": "^1.0.4"
   },
   "devDependencies": {},
   "scripts": {

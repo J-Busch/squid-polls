@@ -10,6 +10,10 @@ var User = new Schema({
         displayName: String
     },
     
+    polls: {
+        titles: Array
+    },
+    
     nbrClicks: {
         clicks: Number
     }

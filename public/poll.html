@@ -1,27 +1,25 @@
 <html>
 
     <head>
-        <title>Homepage</title>
+        <title>Login</title>
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link href="/public/css/main.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid"> 
             <div class='col-xs-12 header'>
-                <h4><span id="display-name"></span><a href='/login-logout'><button>Login/Logout</button></a><a href='/'><button>Home</button></a></h4></h4>
+                <h4><span id="display-name"></span><a href='/login-logout'><button>Login/Logout</button></a><a href='/'><button>Home</button></a></h4>
             </div>
             <div class='col-xs-2'></div>
             <div class='col-xs-8 content'>
                 <div class='col-xs12 poll'>
-                    <h5>You have clicked the button <span id="click-nbr"></span> times.</h5>
-                    <button type="submit" class="btn btn-add">CLICK ME!</button>
-                    <button class="btn btn-delete">RESET</button>
-                    <h3><span id='poll-spc'></span></h3>
-                    <button id='test'>get and post</button>
-                    <button id='test1'>save</button>
-                    <button id='test2'>remove</button>
+                    <h1>This is where the title goes</h1>
+                    <h2>Creator</h2>
+                    <div id=poll>
+                        This has the poll graph
+                    </div>
                 </div>
             </div>
             <div class='col-xs-2'></div>
@@ -30,11 +28,12 @@
                 <h5>By Joel Busch</h5>
             </div>
         </div>
-
+        
         <script type="text/javascript" src="common/ajax-functions.js"></script>
-        <script type="text/javascript" src="controllers/pollController.client.js"></script>
-        <script type="text/javascript" src="controllers/clickController.client.js"></script>
         <script type="text/javascript" src="controllers/userController.client.js"></script>
+        <script type="text/javascript" src="controllers/pollController.client.js"></script>
+        
     </body>
+
 
 </html>

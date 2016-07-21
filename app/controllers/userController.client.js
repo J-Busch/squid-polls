@@ -1,8 +1,6 @@
 'use strict';
 
 (function () {
-    var profileId = document.querySelector('#profile-id') || null;
-    var profileUsername = document.querySelector('#profile-username') || null;
     var displayName = document.querySelector('#display-name');
     var apiUrl = appUrl + '/api/:id';
     
@@ -15,16 +13,10 @@
         
         updateHtmlElement(userObject, displayName, 'displayName');
         
-        if (profileId !== null) {
-            updateHtmlElement(userObject, profileId, 'id');   
-        }
-        
-        if (profileUsername !== null) {
-            updateHtmlElement(userObject, profileUsername, 'username');   
-        }
-        
         if (displayName !== null) {
-            updateHtmlElement(userObject, displayName, 'displayName');   
+            displayName.innerHTML = 'Welcome, ' + userObject['displayName'] + "<a href='/profile'><button>Profile</button></a>";  
         }
-    }))
+    }));
+    
+    
 })();

@@ -1,26 +1,44 @@
 <html>
 
     <head>
-        <title>ayoooooo</title>
+        <title>Profile</title>
+        
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link href="/public/css/main.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
-        <div class="container">
-        <div class="twitter-profile">
-            <img src="/public/img/twitter-128.png" alt="twitter logo" />
-            <p><span>ID: </span><span id="profile-id" class="profile-value"></span></p>
-            <p><span>Username: </span><span id="profile-username" class="profile-value"></span></p>
-            <p><span>Display Name: </span><span id="display-name" class="profile-value"></span></p>
-            
-            <a class="menu" href="/">Home</a>
-            <p id="menu-divide">|</p>
-            <a class="menu" href="/logout">Logout</a>
+        <div class="container-fluid">
+            <div class='col-xs-12 header'>
+                <h4><span id="display-name"></span><a href='/login-logout'><button>Login/Logout</button></a><a href='/'><button>Home</button></a></h4></h4>
+            </div>
+            <div class='col-xs-2'></div>
+            <div class='col-xs-8 content'>
+                <div class='col-xs12 poll'>
+                    <h1>My Polls</h1>
+                </div>
+                <div class='col-xs12 poll'>
+                    <a href='/poll'><h2>This is where the polls will be.......</h2></a>
+                </div>
+                <div class='col-xs12 poll'>
+                    <h1>New Poll</h1>
+                    <form>
+                        <input>Title</input>
+                        <input>Item</input>
+                        <button>Add Item</button>
+                    </form>
+                </div>
+            </div>
+            <div class='col-xs-2'></div>
+            <div class='col-xs-12' id='footer'>
+                <hr></hr>
+                <h5>By Joel Busch</h5>
+            </div>
         </div>
-    </div>
     
     <script type="text/javascript" src="common/ajax-functions.js"></script>
     <script type="text/javascript" src="controllers/userController.client.js"></script>
+    <script type="text/javascript" src="controllers/pollController.client.js"></script>
     
     </body>
 

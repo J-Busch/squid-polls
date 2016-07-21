@@ -1,4 +1,25 @@
 body {
-	font-size: 20px;
+	font-size: 1em;
+	background-color: teal;
+}
+
+.header {
 	background-color: green;
+	text-align: right;
+}
+
+.content {
+	background-color: gray;
+}
+
+.pollTab {
+	text-align: center;
+	margin-top: 5px;
+	border: 3px solid black;
+	border-radius: 10px;
+	background-color: teal;
+}
+
+#footer {
+	text-align: center;
 }

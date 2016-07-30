@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+    
     var displayName = document.querySelector('#display-name');
     var apiUrl = appUrl + '/api/:id';
     
@@ -17,6 +18,5 @@
             displayName.innerHTML = 'Welcome, ' + userObject['displayName'] + "<a href='/profile'><button>Profile</button></a>";  
         }
     }));
-    
     
 })();

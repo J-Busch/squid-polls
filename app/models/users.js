@@ -8,14 +8,6 @@ var User = new Schema({
         id: String,
         username: String,
         displayName: String
-    },
-    
-    polls: {
-        titles: Array
-    },
-    
-    nbrClicks: {
-        clicks: Number
     }
 });
 

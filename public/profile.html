@@ -18,14 +18,18 @@
                     <h1>My Polls</h1>
                 </div>
                 <div class='col-xs12 poll'>
-                    <a href='/poll'><h2>This is where the polls will be.......</h2></a>
+                    <h3><span id='my-polls'></span></h3>
                 </div>
                 <div class='col-xs12 poll'>
                     <h1>New Poll</h1>
-                    <form>
-                        <input>Title</input>
-                        <input>Item</input>
-                        <button>Add Item</button>
+                    <form action='/api/polls' method='post'>
+                        <label>Title</label>
+                        <input type='text' name='title'></input>
+                        <label>First Item</label>
+                        <input type='text' name='item1'></input>
+                        <label>Second Item</label>
+                        <input type='text' name='item2'></input>
+                        <button id='submit-btn' type='submit'>Submit</button>
                     </form>
                 </div>
             </div>
@@ -38,7 +42,7 @@
     
     <script type="text/javascript" src="common/ajax-functions.js"></script>
     <script type="text/javascript" src="controllers/userController.client.js"></script>
-    <script type="text/javascript" src="controllers/pollController.client.js"></script>
+    <script type="text/javascript" src="controllers/profileController.client.js"></script>
     
     </body>
 

@@ -5,7 +5,6 @@ var PollHandler = require(process.cwd() + '/app/controllers/pollHandler.server.j
 module.exports = function(app, passport) {
     
     var pollHandler = new PollHandler();
-    var currentPoll;
     
     function isLoggedIn (req, res) {
         if (req.isAuthenticated()) {
@@ -24,17 +23,6 @@ module.exports = function(app, passport) {
             if (isLoggedIn(req, res)) {
                 res.sendFile(process.cwd() + '/public/profile.html');
             }
-        });
-        
-    app.route('/poll/:pid')
-        .get(function (req, res) {
-            currentPoll = req.params.pid;
-            res.sendFile(process.cwd() + '/public/poll.html');
-        });
-        
-    app.route('/api/onePoll')
-        .get(function (req, res) {
-            pollHandler.getAllPolls(req, res);
         });
         
     app.route('/api/polls')
@@ -60,7 +48,6 @@ module.exports = function(app, passport) {
                 res.json(req.user.twitter);
             }
         });
-        
     app.route('/login-logout')
         .get(function (req, res) {
             if (isLoggedIn(req, res)) {
@@ -70,13 +57,21 @@ module.exports = function(app, passport) {
                 res.redirect('/auth/twitter');
             }
         });
-        
     app.route('/auth/twitter')
         .get(passport.authenticate('twitter'));
-        
     app.route('/auth/twitter/callback')
         .get(passport.authenticate('twitter', {
             successRedirect: '/',
             failureRedirect: '/login'
         }));
+        
+    app.route('/:pid')
+        .get(function (req, res) {
+            res.sendFile(process.cwd() + '/public/poll.html');
+        });
+    app.route('/poll/:pid')
+        .get(function (req, res) {
+            var pid = req.params.pid;
+            pollHandler.findPollByID(req, res, pid);
+        });
 };

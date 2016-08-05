@@ -29,10 +29,9 @@ module.exports = function(app, passport) {
         .get(pollHandler.getAllPolls)
         .post(function (req, res) {
             var title = req.body.title,
-                item1 = req.body.item1,
-                item2 = req.body.item2,
+                items = req.body.item,
                 user = req.user.twitter.id;
-            pollHandler.newPoll(req, res, title, item1, item2, user);
+            pollHandler.newPoll(req, res, title, items, user);
         })
         .delete(pollHandler.rmvPolls);
         

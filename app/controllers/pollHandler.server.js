@@ -34,11 +34,16 @@ function PollHandler () {
             });
     };
     
-    this.newPoll = function (req, res, title, item1, item2, user) {
+    this.newPoll = function (req, res, title, items, user) {
         var poll = new Poll();
+        var pollItems = [];
+        var temp = String(items).split(',');
+        for (var i=0; i<temp.length; i++) {
+            pollItems.push({item: temp[i], voteNbr: 0});
+        }
         poll.pollTitle.title = title;
         poll.pollTitle.author = user;
-        poll.pollItems = [{item: item1, voteNbr: 0}, {item: item2, voteNbr: 0}];
+        poll.pollItems = pollItems;
         poll.pid = count;
         
         poll.save(function(err, poll) {

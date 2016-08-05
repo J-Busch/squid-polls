@@ -23,12 +23,15 @@
                 <div class='col-xs12 poll'>
                     <h1>New Poll</h1>
                     <form action='/api/polls' method='post'>
-                        <label>Title</label>
-                        <input type='text' name='title'></input>
-                        <label>First Item</label>
-                        <input type='text' name='item1'></input>
-                        <label>Second Item</label>
-                        <input type='text' name='item2'></input>
+                        <div id='poll-form'>
+                            <label>Title</label>
+                            <input type='text' name='title'></input>
+                            <label>First Item</label>
+                            <input type='text' name='item'></input>
+                            <label>Second Item</label>
+                            <input type='text' name='item'></input>
+                        </div>
+                        <button id='new-item' type='button'>New Item</button>
                         <button id='submit-btn' type='submit'>Submit</button>
                     </form>
                 </div>

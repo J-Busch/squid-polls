@@ -25,11 +25,12 @@
                     <form action='/api/polls' method='post'>
                         <div id='poll-form'>
                             <label>Title</label>
-                            <input type='text' name='title'></input>
+                            <input type='text' name='title' maxlength='30' required></input>
                             <label>First Item</label>
-                            <input type='text' name='item'></input>
+                            <input type='text' name='item' maxlength='30' required></input>
                             <label>Second Item</label>
-                            <input type='text' name='item'></input>
+                            <input type='text' name='item' maxlength='30' required></input>
+                            <div id='extra-items'></div>
                         </div>
                         <button id='new-item' type='button'>New Item</button>
                         <button id='submit-btn' type='submit'>Submit</button>

@@ -4,7 +4,7 @@
 
     var myPolls = document.querySelector('#my-polls');
     var newItem = document.querySelector('#new-item');
-    var pollForm = document.querySelector('#poll-form');
+    var extraItems = document.querySelector('#extra-items');
     var apiUrl = appUrl + '/api/profile';
 
     ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, function (data) {
@@ -24,7 +24,7 @@
     }));
     
     newItem.addEventListener('click', function () {
-        pollForm.innerHTML += '<label>Next Item</label><input type="text" name="item"></input>';
+        extraItems.innerHTML += '<label>Next Item</label><input type="text" name="item" required></input>';
     });
 
 })();

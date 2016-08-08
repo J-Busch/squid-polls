@@ -83,4 +83,10 @@ module.exports = function(app, passport) {
             var pid = req.params.pid;
             pollHandler.rmvPollByID(req, res, pid);
         });
+    app.route('/pollv2/:pid')
+        .post(function(req, res) {
+            var pid = req.params.pid;
+            var item = req.body.item;
+            pollHandler.addVote(req, res, pid, item);
+        });
 };

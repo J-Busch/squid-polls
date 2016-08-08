@@ -4,8 +4,8 @@
     
     var twister = document.querySelector('#twister');
     var delBtn;
-    var addBtn;
     var userBtns = document.querySelector('#user-btns');
+    var voteForm = document.querySelector('#vote-form');
     var pollAuthor = document.querySelector('#author');
     var content = document.querySelector('.poll');
     
@@ -16,15 +16,16 @@
     ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, function (data) {
         var singlePoll = JSON.parse(data);
         
+        google.charts.setOnLoadCallback(drawChart(singlePoll));
+        
         ajaxFunctions.ajaxRequest('GET', appUrl + '/api/:id', function(data2) {
             var user = JSON.parse(data2);
             
             if (user['username'] === singlePoll.pollTitle.author) {
-                userBtns.innerHTML = "<form action='poll/" + pid + "' method='post'><input type='text' name='item'></input><button id='add-btn' type='submit'>Add Item</button></form>"
+                userBtns.innerHTML = "<form action='poll/" + pid + "' method='post'><input type='text' name='item' maxlength='30'></input><button type='submit'>Add Item</button></form>"
                 + "<button id='del-btn'>Delete This Poll</button>";
             }
             delBtn = document.querySelector('#del-btn');
-            addBtn = document.querySelector('#add-btn');
             
             delBtn.addEventListener('click', function () {
                 ajaxFunctions.ajaxRequest('DELETE', apiUrl, function() {});
@@ -32,7 +33,14 @@
             });
         });
         
-        google.charts.setOnLoadCallback(drawChart(singlePoll));
+        var arr = ["<form action='pollv2/" + pid + "' method='post'>"];
+        
+        for (var i=0; i<singlePoll.pollItems.length; i++) {
+            arr.push("<input type='radio' name='item' value='" + singlePoll.pollItems[i].item + "'>" + singlePoll.pollItems[i].item + "</input>");
+        }
+        arr.push("<button type='submit'>Vote!</button></form>");
+        
+        voteForm.innerHTML = arr.join('');
         pollAuthor.innerHTML = 'Poll by:  ' + singlePoll.pollTitle.author;
     }));
     

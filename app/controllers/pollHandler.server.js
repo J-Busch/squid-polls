@@ -48,6 +48,23 @@ function PollHandler () {
             res.redirect('/' + pid);
     };
     
+    this.addVote = function (req, res, pid, item) {
+        Polls
+            .findOne({'pid' : pid}, function(err, poll) {
+                if (err) throw err;
+                
+                for (var i=0; i<poll.pollItems.length; i++) {
+                    if (poll.pollItems[i].item === item) {
+                        poll.pollItems[i].voteNbr += 1;
+                        poll.save(function(err, poll) {
+                            if (err) throw err;
+                        });
+                        res.redirect('/' + pid);
+                    }
+                }
+            });
+    };
+    
     this.newPoll = function (req, res, title, items, user) {
         var poll = new Poll();
         var pollItems = [];

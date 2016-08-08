@@ -9,7 +9,7 @@
         var userObject = JSON.parse(data);
         
         if (displayName !== null) {
-            displayName.innerHTML = 'Welcome, ' + userObject['displayName'] + "<a href='/profile'><button>Profile</button></a>";  
+            displayName.innerHTML = 'Welcome, ' + userObject['displayName'] + "<a href='/profile'><button>  Profile</button></a>";  
         }
     }));
     

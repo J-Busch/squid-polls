@@ -3,7 +3,6 @@
 (function () {
     
     var pollSpc = document.querySelector('#poll-spc');
-    var test2 = document.querySelector('#test2');
     var apiUrl = appUrl + '/api/polls';
     
     ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, function(data) {
@@ -21,11 +20,5 @@
         pollSpc.innerHTML = pollArr.join('');
         
     }));
-    
-    test2.addEventListener('click', function () {
-        ajaxFunctions.ajaxRequest('DELETE', apiUrl, function() {
-            console.log('yooooooo');
-            });
-    });
     
 })();

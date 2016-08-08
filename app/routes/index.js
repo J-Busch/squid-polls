@@ -22,6 +22,8 @@ module.exports = function(app, passport) {
         .get(function (req, res) {
             if (isLoggedIn(req, res)) {
                 res.sendFile(process.cwd() + '/public/profile.html');
+            } else {
+                res.redirect('/');
             }
         });
         
@@ -30,14 +32,13 @@ module.exports = function(app, passport) {
         .post(function (req, res) {
             var title = req.body.title,
                 items = req.body.item,
-                user = req.user.twitter.id;
+                user = req.user.twitter.username;
             pollHandler.newPoll(req, res, title, items, user);
-        })
-        .delete(pollHandler.rmvPolls);
+        });
         
     app.route('/api/profile')
         .get(function(req, res) {
-            var user = req.user.twitter.id;
+            var user = req.user.twitter.username;
             pollHandler.findMyPolls(req, res, user);
         });
         
@@ -72,5 +73,14 @@ module.exports = function(app, passport) {
         .get(function (req, res) {
             var pid = req.params.pid;
             pollHandler.findPollByID(req, res, pid);
+        })
+        .post(function (req, res) {
+            var pid = req.params.pid;
+            var item = req.body.item;
+            pollHandler.addItemByID(req, res, pid, item);
+        })
+        .delete(function (req, res) {
+            var pid = req.params.pid;
+            pollHandler.rmvPollByID(req, res, pid);
         });
 };

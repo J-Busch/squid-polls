@@ -27,11 +27,25 @@ function PollHandler () {
             });
     };
     
-    this.rmvPolls = function (req, res) {
+    this.rmvPollByID = function (req, res, pid) {
         Polls
-            .remove({}, function (err) {
+            .remove({'pid' : pid}, function (err) {
                 if (err) throw err;
             });
+    };
+    
+    this.addItemByID = function (req, res, pid, item) {
+        Polls
+            .findOne({'pid' : pid}, function(err, poll) {
+                if (err) throw err;
+                
+                poll.pollItems.push({item: item, voteNbr: 1});
+                poll.save(function(err, poll) {
+                    if (err) throw err;
+                });
+            });
+            
+            res.redirect('/' + pid);
     };
     
     this.newPoll = function (req, res, title, items, user) {

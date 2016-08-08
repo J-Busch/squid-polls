@@ -1,5 +1,9 @@
 'use strict';
 
+//voting functionality
+//fix new poll form
+//make it look good
+
 var express = require('express'),
     routes = require('./app/routes/index.js'),
     mongoose = require('mongoose'),

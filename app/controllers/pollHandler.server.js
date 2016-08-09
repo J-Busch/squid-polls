@@ -48,7 +48,7 @@ function PollHandler () {
             res.redirect('/' + pid);
     };
     
-    this.addVote = function (req, res, pid, item) {
+    this.addVote = function (req, res, pid, item, user) {
         Polls
             .findOne({'pid' : pid}, function(err, poll) {
                 if (err) throw err;
@@ -56,6 +56,7 @@ function PollHandler () {
                 for (var i=0; i<poll.pollItems.length; i++) {
                     if (poll.pollItems[i].item === item) {
                         poll.pollItems[i].voteNbr += 1;
+                        poll.userVotes.push({user: user});
                         poll.save(function(err, poll) {
                             if (err) throw err;
                         });
@@ -84,7 +85,7 @@ function PollHandler () {
         count++;
         
         res.redirect('/profile');
-    }
+    };
     
     this.findMyPolls = function (req, res, user) {
         Polls

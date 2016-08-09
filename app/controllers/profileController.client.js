@@ -24,7 +24,7 @@
     }));
     
     newItem.addEventListener('click', function () {
-        extraItems.innerHTML += '<label>Next Item</label><input type="text" name="item" required></input>';
+        extraItems.innerHTML += '<div class="col-xs-3"><h4><label>Next Item</label></h4><input type="text" name="item" maxlength="30" required></input></div>';
     });
 
 })();

@@ -1,25 +1,59 @@
 body {
 	font-size: 1.3em;
-	background-color: teal;
+	background-color: #888888;
 }
 
 .header {
-	background-color: green;
+	background-color: #cccccc;
 	text-align: right;
+}
+.header button {
+	margin-right: 0.5em;
 }
 
 .content {
-	background-color: gray;
+	background-color: #efefef;
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
+
+.polls {
+	text-align: center;
+}
+
+#user-btns {
+	text-align: right;
+}
+
+#add-item {
+	text-align: left;
+}
+
+#add-item input {
+	margin-top: 7px;
 }
 
 .pollTab {
 	text-align: center;
-	margin-top: 5px;
-	border: 3px solid black;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	border: 3px solid #888888;
 	border-radius: 10px;
-	background-color: teal;
+	background-color: #D1EEEE;
 }
 
-#footer {
+#new-poll {
+	padding-left: 5em;
+}
+
+.footer {
 	text-align: center;
+	color: white;
+}
+.footer a {
+	color: #D1EEEE;
+}
+
+a {
+	color: black;
 }

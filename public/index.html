@@ -5,24 +5,28 @@
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+        <script src="https://use.fontawesome.com/a705bee300.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">google.charts.load('current', {'packages':['corechart']});</script>
     </head>
 
     <body>
         <div class="container-fluid">
             <div class='col-xs-12 header'>
-                <h4><span id="display-name"></span><a href='/login-logout'><button>Login/Logout</button></a><a href='/'><button>Home</button></a></h4></h4>
+                <h3><span id="display-name"></span><a href='/login-logout'><button><i class="fa fa-twitter" aria-hidden="true"></i> Login/Logout</button></a><a href='/'><button>Home</button></a></h3>
             </div>
             <div class='col-xs-2'></div>
             <div class='col-xs-8 content'>
-                <div class='col-xs12 poll'>
+                <div class='col-xs-12 polls'>
+                    <h1>Check Out These Polls!</h1>
+                    <hr></hr>
                     <h3><span id='poll-spc'></span></h3>
                 </div>
             </div>
             <div class='col-xs-2'></div>
-            <div class='col-xs-12' id='footer'>
+            <div class='col-xs-12 footer'>
                 <hr></hr>
-                <h5>By Joel Busch</h5>
-                <a href='https://github.com/J-Busch/voting-app' target='_blank'><h5>Repository</h5></a>
+                <h5>By Joel Busch  //  <a href='https://github.com/J-Busch/voting-app' target='_blank'>GitHub-Repository</a></h5>
             </div>
         </div>
 

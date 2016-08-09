@@ -17,6 +17,12 @@ var Poll = new Schema({
                 item: String,
                 voteNbr: Number
             }
+        ],
+        
+        userVotes: [
+            {
+                user: String
+            }
         ]
 });
 

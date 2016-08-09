@@ -4,10 +4,11 @@
     
     var twister = document.querySelector('#twister');
     var delBtn;
+    var addItem = document.querySelector('#add-item');
     var userBtns = document.querySelector('#user-btns');
     var voteForm = document.querySelector('#vote-form');
-    var pollAuthor = document.querySelector('#author');
-    var content = document.querySelector('.poll');
+    var pollTitle = document.querySelector('#title');
+    var content = document.querySelector('.content');
     
     var temp = window.location;
     var pid = String(temp).slice(-1);
@@ -22,26 +23,38 @@
             var user = JSON.parse(data2);
             
             if (user['username'] === singlePoll.pollTitle.author) {
-                userBtns.innerHTML = "<form action='poll/" + pid + "' method='post'><input type='text' name='item' maxlength='30'></input><button type='submit'>Add Item</button></form>"
-                + "<button id='del-btn'>Delete This Poll</button>";
+                userBtns.innerHTML = "<h4><button id='del-btn'>Delete Poll</button></h4>";
+                addItem.innerHTML = "<form action='poll/" + pid + "' method='post'><div class='col-xs-6'><input type='text' name='item' maxlength='30'></input></div><div class='col-xs-6'><h4><button type='submit'>Add Item</button></h4></div></form>";
             }
+            
+            var voted = false;
+            if (user !== null) {
+                for (var i=0; i<singlePoll.userVotes.length; i++) {
+                    if (singlePoll.userVotes[i].user === user['username']) {
+                        voted = true;
+                    }
+                }
+                
+                if (voted === false) {
+                    var arr = ["<form action='pollv2/" + pid + "' method='post'><h4>"];
+                    for (var i=0; i<singlePoll.pollItems.length; i++) {
+                        arr.push("<input type='radio' name='item' value='" + singlePoll.pollItems[i].item + "'> " + singlePoll.pollItems[i].item + "   </input>");
+                    }
+                    arr.push("<button type='submit'>Vote!</button></h4></form>");
+        
+                    voteForm.innerHTML = arr.join('');
+                }
+            }
+            
             delBtn = document.querySelector('#del-btn');
             
             delBtn.addEventListener('click', function () {
                 ajaxFunctions.ajaxRequest('DELETE', apiUrl, function() {});
-                content.innerHTML = 'Poll has been deleted...  =)';
+                content.innerHTML = '<h2 class="polls">Poll has been deleted...  =(</h2>';
             });
         });
         
-        var arr = ["<form action='pollv2/" + pid + "' method='post'>"];
-        
-        for (var i=0; i<singlePoll.pollItems.length; i++) {
-            arr.push("<input type='radio' name='item' value='" + singlePoll.pollItems[i].item + "'>" + singlePoll.pollItems[i].item + "</input>");
-        }
-        arr.push("<button type='submit'>Vote!</button></form>");
-        
-        voteForm.innerHTML = arr.join('');
-        pollAuthor.innerHTML = 'Poll by:  ' + singlePoll.pollTitle.author;
+        pollTitle.innerHTML = '<h1>' + singlePoll.pollTitle.title + '</h1><h4>By: ' + singlePoll.pollTitle.author + '</h4>';
     }));
     
     
@@ -58,12 +71,12 @@
     function drawChart(singlePoll) {
         var items = [['Item', 'Votes']];
         for (var i=0; i<singlePoll.pollItems.length; i++) {
-            items.push([singlePoll.pollItems[i].item, singlePoll.pollItems[i].voteNbr])
+            items.push([singlePoll.pollItems[i].item, singlePoll.pollItems[i].voteNbr]);
         }
         
         var data = google.visualization.arrayToDataTable(items);
         var options = {
-            title: singlePoll.pollTitle.title,
+            'height' :300
         };
         
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

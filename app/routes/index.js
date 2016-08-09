@@ -87,6 +87,7 @@ module.exports = function(app, passport) {
         .post(function(req, res) {
             var pid = req.params.pid;
             var item = req.body.item;
-            pollHandler.addVote(req, res, pid, item);
+            var user = req.user.twitter.username;
+            pollHandler.addVote(req, res, pid, item, user);
         });
 };

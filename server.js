@@ -12,7 +12,7 @@ require('dotenv').load();
 require('./app/config/passport')(passport);
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGO_URI || 8080);
+mongoose.connect(process.env.MONGOLAB_URI);
     
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/public', express.static(process.cwd() + '/public'));
@@ -35,6 +35,6 @@ app.use(passport.session());
 routes(app, passport);
 
 var port = process.env.PORT;    
-app.listen(port, function () {
+app.listen(port || 8080, function () {
     console.log('Listening on port' + port);
 });

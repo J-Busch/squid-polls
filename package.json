@@ -1,7 +1,6 @@
 {
   "name": "voting-app",
   "version": "1.0.0",
-  "description": "Ayyyy",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -19,5 +18,8 @@
     "start": "node server.js"
   },
   "author": "Joel Busch",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "4.4.5"
+  }
 }

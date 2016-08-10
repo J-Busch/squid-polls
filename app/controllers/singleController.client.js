@@ -10,8 +10,9 @@
     var pollTitle = document.querySelector('#title');
     var content = document.querySelector('.content');
     
-    var temp = window.location;
-    var pid = String(temp).slice(-1);
+    var temp = String(window.location);
+    var diff = (temp.indexOf('/', 9) + 1) - temp.length;
+    var pid = temp.slice(diff);
     var apiUrl = appUrl + '/poll/' + pid;
     
     ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, function (data) {
@@ -56,7 +57,6 @@
         
         pollTitle.innerHTML = '<h1>' + singlePoll.pollTitle.title + '</h1><h4>By: ' + singlePoll.pollTitle.author + '</h4>';
     }));
-    
     
     twister.addEventListener('click', function () {
         ajaxFunctions.ajaxRequest('GET', apiUrl, function (data) {

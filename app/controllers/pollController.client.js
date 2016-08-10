@@ -10,7 +10,7 @@
         var num = pollObject.length;
         var pollArr = [];
         
-        for (var i=0; i<=num-1; i++) {
+        for (var i=num-1; i>0; i--) {
             var temp = "<a href='" + appUrl + "/" + pollObject[i].pid + "'><div class='col-xs-12 pollTab'>" +
                         pollObject[i].pollTitle.title + "</div></a>";
                         

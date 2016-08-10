@@ -5,7 +5,7 @@ var Poll = require('../models/polls.js');
 
 function PollHandler () {
     
-    var count = 0;
+    var count = 11;
 
     this.getAllPolls = function (req, res) {
         Polls

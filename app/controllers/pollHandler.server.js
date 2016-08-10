@@ -71,7 +71,7 @@ function PollHandler () {
         var pollItems = [];
         var temp = String(items).split(',');
         for (var i=0; i<temp.length; i++) {
-            pollItems.push({item: temp[i], voteNbr: 1});
+            pollItems.push({item: temp[i], voteNbr: 0});
         }
         poll.pollTitle.title = title;
         poll.pollTitle.author = user;

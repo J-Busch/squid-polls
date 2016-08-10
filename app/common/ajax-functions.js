@@ -1,4 +1,4 @@
-var appUrl = window.location.origin;
+var appUrl = process.env.APP_URL;
 
 var ajaxFunctions = {
     ready: function ready (fn) {

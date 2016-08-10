@@ -1,3 +1,3 @@
-<h1>Full Stack Voting App</h1>
+<h1>Squid Polls</h1>
 </hr>
-<h4>An application where polls can be created, viewed, and voted on; complete with an authentication system that lets you keep track of polls you've made. Made with Node.js.</h4>
+<h4>An application where polls can be created, viewed, and voted on, with an authentication system that lets you keep track of what you've made. Created with Node.js.</h4>

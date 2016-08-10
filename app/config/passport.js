@@ -2,7 +2,7 @@
 
 var TwitterStrategy = require('passport-twitter').Strategy;
 var User = require('../models/users');
-
+var configAuth = require('./auth');
 
 module.exports = function (passport) {
     passport.serializeUser(function (user, done) {
@@ -16,9 +16,9 @@ module.exports = function (passport) {
     });
     
     passport.use(new TwitterStrategy({
-        consumerKey: process.env.TWITTER_KEY,
-        consumerSecret: process.env.TWITTER_SECRET,
-        callbackURL: process.env.APP_URL + '/auth/twitter/callback'
+        consumerKey: configAuth.twitterAuth.consumerKey,
+        consumerSecret: configAuth.twitterAuth.consumerSecret,
+        callbackURL: configAuth.twitterAuth.callbackURL
     },
     function (token, refreshToken, profile, done) {
         process.nextTick(function () {

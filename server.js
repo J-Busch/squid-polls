@@ -37,5 +37,5 @@ routes(app, passport);
 
 app.set('port', (process.env.PORT || 8080));
 app.listen(app.get('port'), function () {
-    console.log('Listening on port' + 8080);
+    console.log('Listening on port 8080');
 });

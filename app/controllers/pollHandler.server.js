@@ -78,7 +78,7 @@ function PollHandler () {
         
         Polls.find({}, {pid : true, _id : false}).sort({pid : -1}).limit(1).exec(function (err, result) {
             if (err) throw err;
-            
+
             poll.pid = result[0].pid + 1;
             poll.save(function(err, poll) {
                 if (err) throw err;

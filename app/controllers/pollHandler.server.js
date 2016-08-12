@@ -4,8 +4,6 @@ var Polls = require('../models/polls.js');
 var Poll = require('../models/polls.js');
 
 function PollHandler () {
-    
-    var count = 0;
 
     this.getAllPolls = function (req, res) {
         Polls
@@ -68,6 +66,7 @@ function PollHandler () {
     
     this.newPoll = function (req, res, title, items, user) {
         var poll = new Poll();
+        
         var pollItems = [];
         var temp = String(items).split(',');
         for (var i=0; i<temp.length; i++) {
@@ -76,13 +75,15 @@ function PollHandler () {
         poll.pollTitle.title = title;
         poll.pollTitle.author = user;
         poll.pollItems = pollItems;
-        poll.pid = count;
         
-        poll.save(function(err, poll) {
+        Polls.find({}, {pid : true, _id : false}).sort({pid : -1}).limit(1).exec(function (err, result) {
             if (err) throw err;
+            
+            poll.pid = result[0].pid + 1;
+            poll.save(function(err, poll) {
+                if (err) throw err;
+            });
         });
-        
-        count++;
         
         res.redirect('/profile');
     };

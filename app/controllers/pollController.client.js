@@ -11,10 +11,12 @@
         var pollArr = [];
         
         for (var i=num-1; i>=0; i--) {
-            var temp = "<a href='" + appUrl + "/" + pollObject[i].pid + "'><div class='col-xs-12 pollTab'>" +
+            if (pollObject[i] !== undefined) {
+                var temp = "<a href='" + appUrl + "/" + pollObject[i].pid + "'><div class='col-xs-12 pollTab'>" +
                         pollObject[i].pollTitle.title + "</div></a>";
                         
-            pollArr.push(temp);
+                pollArr.push(temp);
+            }
         }
         
         pollSpc.innerHTML = pollArr.join('');

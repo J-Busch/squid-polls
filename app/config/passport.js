@@ -16,8 +16,8 @@ module.exports = function (passport) {
     });
     
     passport.use(new TwitterStrategy({
-        consumerKey: configAuth.twitterAuth.consumerKey,
-        consumerSecret: configAuth.twitterAuth.consumerSecret,
+        consumerKey: 'U4uLQAbsqskyWd6TxRbdeE5bF',
+        consumerSecret: 'kCzT0B14Z87SWSDpAI55vF25Wp3r1mCWxaPbjwl1ccoBSygmrg',
         callbackURL: configAuth.twitterAuth.callbackURL
     },
     function (token, refreshToken, profile, done) {

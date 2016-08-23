@@ -2,4 +2,3 @@ node_modules/
 .gitignore
 .env
 data/
-app/config/passport.js

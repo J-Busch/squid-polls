@@ -24,8 +24,8 @@
             var user = JSON.parse(data2);
             
             if (user['username'] === singlePoll.pollTitle.author) {
-                userBtns.innerHTML = "<h4><button id='del-btn'>Delete Poll</button></h4>";
-                addItem.innerHTML = "<form action='poll/" + pid + "' method='post'><div class='col-xs-6'><input type='text' name='item' maxlength='30'></input></div><div class='col-xs-6'><h4><button type='submit'>Add Item</button></h4></div></form>";
+                userBtns.innerHTML = "<button id='del-btn'>Delete Poll</button>";
+                addItem.innerHTML = "<form action='poll/" + pid + "' method='post'><div class='form-group'><input class='form-control' type='text' name='item' maxlength='50' placeholder='New Item' required></input></div><button type='submit'>Submit</button></form>";
             }
             
             var voted = false;
@@ -37,11 +37,11 @@
                 }
                 
                 if (voted === false) {
-                    var arr = ["<form action='pollv2/" + pid + "' method='post'><h4>"];
+                    var arr = ["<form action='pollv2/" + pid + "' method='post'>"];
                     for (var i=0; i<singlePoll.pollItems.length; i++) {
                         arr.push("<input type='radio' name='item' value='" + singlePoll.pollItems[i].item + "'> " + singlePoll.pollItems[i].item + "   </input>");
                     }
-                    arr.push("<button type='submit'>Vote!</button></h4></form>");
+                    arr.push("<button type='submit'>Vote!</button></form>");
         
                     voteForm.innerHTML = arr.join('');
                 }
@@ -51,7 +51,7 @@
             
             delBtn.addEventListener('click', function () {
                 ajaxFunctions.ajaxRequest('DELETE', apiUrl, function() {});
-                content.innerHTML = '<h2 class="polls">Poll has been deleted...  =(</h2>';
+                content.innerHTML = '<h2>Poll has been deleted...  =(</h2>';
             });
         });
         
@@ -76,7 +76,8 @@
         
         var data = google.visualization.arrayToDataTable(items);
         var options = {
-            'height' :300
+            //colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+            is3D: true
         };
         
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

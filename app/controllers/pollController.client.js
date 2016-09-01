@@ -12,8 +12,8 @@
         
         for (var i=num-1; i>=0; i--) {
             if (pollObject[i] !== undefined) {
-                var temp = "<a href='" + appUrl + "/" + pollObject[i].pid + "'><div class='col-xs-12 pollTab'>" +
-                        pollObject[i].pollTitle.title + "</div></a>";
+                var temp = "<div class='pollTab'><a href='" + appUrl + "/" + pollObject[i].pid + "'>" +
+                        pollObject[i].pollTitle.title + "</a></div>";
                         
                 pollArr.push(temp);
             }

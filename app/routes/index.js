@@ -61,8 +61,8 @@ module.exports = function(app, passport) {
         .get(passport.authenticate('twitter'));
     app.route('/auth/twitter/callback')
         .get(passport.authenticate('twitter', {
-            successRedirect: '/',
-            failureRedirect: '/login'
+            successRedirect: '/profile',
+            failureRedirect: '/'
         }));
         
     app.route('/:pid')

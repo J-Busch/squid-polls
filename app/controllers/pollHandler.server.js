@@ -37,7 +37,7 @@ function PollHandler () {
             .findOne({'pid' : pid}, function(err, poll) {
                 if (err) throw err;
                 
-                poll.pollItems.push({item: item, voteNbr: 1});
+                poll.pollItems.push({item: item, voteNbr: 0});
                 poll.save(function(err, poll) {
                     if (err) throw err;
                 });

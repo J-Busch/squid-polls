@@ -12,9 +12,9 @@
         var num = pollObject.length;
         var pollArr = [];
         
-        for (var i=0; i<=num-1; i++) {
-            var temp = "<a href='" + appUrl + "/" + pollObject[i].pid + "'><div class='col-xs-12 pollTab'>" +
-                        pollObject[i].pollTitle.title + "</div></a>";
+        for (var i=num-1; i>=0; i--) {
+            var temp = "<div class='pollTab'><a href='" + appUrl + "/" + pollObject[i].pid + "'>" +
+                        pollObject[i].pollTitle.title + "</a></div>";
                         
             pollArr.push(temp);
         }
@@ -24,7 +24,7 @@
     }));
     
     newItem.addEventListener('click', function () {
-        extraItems.innerHTML += '<div class="col-xs-3"><h4><label>Next Item</label></h4><input type="text" name="item" maxlength="30" required></input></div>';
+        extraItems.innerHTML += "<div class='form-group'><label>Next Item</label><input class='form-control' type='text' name='item' maxlength='30' placeholder='Item' required></input></div>";
     });
 
 })();

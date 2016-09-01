@@ -12,34 +12,35 @@
 
     <body>
         <div class="container-fluid"> 
-            <div class='col-xs-12 header'>
-                <h3><span id="display-name"></span><a href='/login-logout'><button><i class="fa fa-twitter" aria-hidden="true"></i> Login/Logout</button></a><a href='/'><button>Home</button></a></h3>
+            <div class='row'>
+                <div class='col-xs-12 header text-right'>
+                    <span id='display-name'></span>
+                    <span id='log'></span>
+                    <a href='/'>Home</a>
+                </div>
             </div>
-            <div class='col-xs-2'></div>
-            <div class='col-xs-8 content'>
-                <div class='col-xs-12'>
-                    <div class='polls' id='title'></div>
-                    <div class='polls' id='piechart'></div>
-                    <div class='col-xs-12' id='below-chart'>
-                        <div class='col-xs-5'>
-                            <span id='add-item'></span>
+            <div class='row'>
+                <div class='col-xs-10 col-xs-offset-1 content text-center'>
+                    <div>
+                        <div id='title'></div>
+                        <div id='piechart'></div>
+                        <div id='ins'>
+                            <div class='text-right'>
+                                <span id='add-item'></span>
+                            </div>
+                            <div class='text-center'>
+                                <span id='vote-form'></span>
+                                <span id='user-btns'></span>
+                                <button id='twister'>Share Poll</button>
+                            </div>
                         </div>
-                        <div class='col-xs-4'>
-                            <span id='user-btns'></span>
-                        </div>
-                        <div class='col-xs-3'>
-                            <h4><button id='twister'>Share Poll</button></h4>
-                        </div>
-                    </div>
-                    <div class='col-xs-12'>
-                        <div class='polls' id='vote-form'></div>
                     </div>
                 </div>
             </div>
-            <div class='col-xs-2'></div>
-            <div class='col-xs-12 footer'>
-                <hr></hr>
-                <h5>By Joel Busch  //  <a href='https://github.com/J-Busch/voting-app' target='_blank'>GitHub-Repository</a></h5>
+            <div class='row'>
+                <div class='col-xs-12 footer text-center'>
+                    <h5>By Joel Busch // <a href='https://github.com/J-Busch/voting-app' target='_blank'>GitHub-Repository</a></h5>
+                </div>
             </div>
         </div>
         

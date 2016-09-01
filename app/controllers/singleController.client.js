@@ -62,7 +62,7 @@
         ajaxFunctions.ajaxRequest('GET', apiUrl, function (data) {
             var singlePoll = JSON.parse(data);
         
-            window.open('https://twitter.com/intent/tweet?related=freecodecamp&text=' + encodeURIComponent(
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(
                 singlePoll.pollTitle.title + ' ' + appUrl + '/' + pid
                 ), 'Share', 'width=550, height=400, toolbar=0, scrollbars=1 ,location=0 ,statusbar=0,menubar=0, resizable=0');
         });
@@ -76,8 +76,11 @@
         
         var data = google.visualization.arrayToDataTable(items);
         var options = {
-            //colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
-            is3D: true
+            is3D: true,
+            backgroundColor: {
+                stroke: '#D9C7D4',
+                strokeWidth: 3
+            }
         };
         
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
